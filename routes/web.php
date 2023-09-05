@@ -19,13 +19,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/tickets/create', [TicketController::class, 'create']);
+Route::get('/tickets/create', [TicketController::class, 'create'])->name('tickets.create');
 Route::post('/tickets/store',  [TicketController::class, 'store']);
 
 Route::post('/login', [UserController::class, 'login']);
 Route::get('/login', function () {
     return view('welcome');
 })->name('login');
+
+Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
 Route::middleware(['auth'])->group(function () {
     // Route for displaying query reports form
