@@ -31,6 +31,7 @@
             <td>{{ $ticket->status }}</td>
             <td>
                 <a href="{{ route('tickets.edit', $ticket->id) }}" class="btn btn-primary">Edit</a>
+                <a href="{{ route('tickets.sendEmail', $ticket->id) }}" class="btn btn-success">Send Email</a>
             </td>
         </tr>
         @endforeach

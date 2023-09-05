@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ticket;
+use App\Notifications\TicketUpdatedNotification;
 use Illuminate\Http\Request;
 
 class TicketController extends Controller
@@ -21,11 +22,16 @@ class TicketController extends Controller
             'description' => 'required',
         ]);
 
+        // Retrieve the authenticated user
+        $user = auth()->user();
+
         // Create a new ticket
         $ticket = new Ticket([
             'category' => $request->input('category'),
             'subject' => $request->input('subject'),
             'description' => $request->input('description'),
+            'status' => 'newly_logged',
+            'user_id' => $user->id,
         ]);
 
         $ticket->save();
@@ -48,5 +54,12 @@ class TicketController extends Controller
     public function editPage(Ticket $ticket)
     {
         return view('edit-ticket', compact('ticket'));
+    }
+
+    public function sendEmail(Ticket $ticket)
+    {
+        $ticket->user->notify(new TicketUpdatedNotification($ticket));
+
+        return redirect()->route('tickets.edit', $ticket->id)->with('success', 'Email sent successfully.');
     }
 }

@@ -23,6 +23,9 @@ Route::get('/tickets/create', [TicketController::class, 'create']);
 Route::post('/tickets/store',  [TicketController::class, 'store']);
 
 Route::post('/login', [UserController::class, 'login']);
+Route::get('/login', function () {
+    return view('welcome');
+})->name('login');
 
 Route::middleware(['auth'])->group(function () {
     // Route for displaying query reports form
@@ -35,4 +38,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/tickets/{ticket}/edit', [TicketController::class, 'editPage']);
     Route::put('/tickets/{ticket}/edit', [TicketController::class, 'edit'])->name('tickets.edit');
 
+    // Route for sending an email
+    Route::get('/tickets/{ticket}/send-email', [TicketController::class, 'sendEmail'])->name('tickets.sendEmail');
+
 });
+
+
