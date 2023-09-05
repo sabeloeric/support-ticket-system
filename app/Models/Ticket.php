@@ -13,5 +13,6 @@ class Ticket extends Model
         'category',
         'subject',
         'description',
+        'status',
     ];
 }

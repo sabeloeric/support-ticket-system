@@ -19,6 +19,7 @@
             <th>Last Name</th>
             <th>Date Logged</th>
             <th>Status</th>
+            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -28,6 +29,9 @@
             <td>last name here</td>
             <td>{{ $ticket->created_at }}</td>
             <td>{{ $ticket->status }}</td>
+            <td>
+                <a href="{{ route('tickets.edit', $ticket->id) }}" class="btn btn-primary">Edit</a>
+            </td>
         </tr>
         @endforeach
         </tbody>

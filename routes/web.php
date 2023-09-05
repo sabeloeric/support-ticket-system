@@ -30,4 +30,9 @@ Route::middleware(['auth'])->group(function () {
 
     // Route for handling the form submission
     Route::post('/query-reports', [QueryReportController::class, 'generateReport'])->name('query.generate-report');
+
+    // Route for editing a ticket
+    Route::get('/tickets/{ticket}/edit', [TicketController::class, 'editPage']);
+    Route::put('/tickets/{ticket}/edit', [TicketController::class, 'edit'])->name('tickets.edit');
+
 });
