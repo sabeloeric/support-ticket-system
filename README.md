@@ -25,6 +25,16 @@ Replace your-mailtrap-username and your-mailtrap-password with your Mailtrap.io 
 Now, your Laravel application will use Mailtrap.io as the mail server for sending emails during development.
 
 # Usage
+
+<img width="993" alt="image" src="https://github.com/sabeloeric/support-ticket-system/assets/48094027/a865c6a9-28a3-47ed-84a8-30d6db27a8d6">
+
+<img width="993" alt="image" src="https://github.com/sabeloeric/support-ticket-system/assets/48094027/e009dda8-78fe-45fd-81d4-7faa953055fa">
+
+<img width="993" alt="image" src="https://github.com/sabeloeric/support-ticket-system/assets/48094027/c69ff189-9626-4564-b7c8-c95ab36aab21">
+
+<img width="993" alt="image" src="https://github.com/sabeloeric/support-ticket-system/assets/48094027/df120e76-ccd6-4767-ab4a-4a5c4ca9c963">
+
+
 ## Logging In
 - Visit http://localhost:8000/login to access the login page.
 
